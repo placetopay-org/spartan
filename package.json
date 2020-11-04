@@ -24,7 +24,7 @@
     "tailwindcss": "^1.0"
   },
   "dependencies": {
-    "@tailwindcss/custom-forms": "github:tailwindcss/custom-forms",
+    "@tailwindcss/custom-forms": "^0.2.1",
     "hex-rgb": "^4.2.0",
     "tailwindcss": "^1.9.6"
   }

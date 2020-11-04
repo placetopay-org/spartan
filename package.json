@@ -1,0 +1,31 @@
+{
+  "name": "@placetopay/spartan",
+  "version": "0.1.0",
+  "description": "Spartan is a base styling for web apps used in PlacetoPay. Spartan is a preset for tailwindcss framework",
+  "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/placetopay-org/spartan.git"
+  },
+  "keywords": [
+    "placetopay",
+    "spartan",
+    "tailwindcss",
+    "design",
+    "system"
+  ],
+  "author": "eduardo.guzman@evertecinc.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/placetopay-org/spartan/issues"
+  },
+  "homepage": "https://github.com/placetopay-org/spartan#readme",
+  "peerDependencies": {
+    "tailwindcss": "^1.0"
+  },
+  "dependencies": {
+    "@tailwindcss/custom-forms": "github:tailwindcss/custom-forms",
+    "hex-rgb": "^4.2.0",
+    "tailwindcss": "^1.9.6"
+  }
+}

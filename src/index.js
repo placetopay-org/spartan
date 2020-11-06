@@ -1,4 +1,5 @@
 const hexRgb = require('hex-rgb')
+const plugin = require('tailwindcss/plugin')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 function rgba(hex, alpha) {
@@ -54,7 +55,84 @@ module.exports = {
         },
     },
     plugins: [
-        require('@tailwindcss/custom-forms')
+        require('@tailwindcss/custom-forms'),
+        plugin(function ({ addComponents, theme }) {
+            const inputs = {
+                '.has-error': {
+                    borderColor: theme('colors.red.300'),
+                    color: theme('colors.red.900'),
+                    '&:focus': {
+                        borderColor: theme('colors.red.300'),
+                        boxShadow: theme('boxShadow.outline-red'),
+                    },
+                    '&::placeholder': {
+                        color: theme('colors.red.300')
+                    }
+                },
+                '.form-label': {
+                    display: 'block',
+                    fontSize: theme('fontSize.sm'),
+                    fontWeight: theme('fontWeight.medium'),
+                    lineHeight: theme('lineHeight.5'),
+                    color: theme('colors.gray.700'),
+                },
+                '.form-input-error': {
+                    marginTop: theme('spacing.2'),
+                    color: theme('colors.red.600'),
+                    fontSize: theme('fontSize.sm'),
+                    lineHeight: theme('lineHeight.5'),
+                }
+            };
+
+            const buttons = {
+                '.btn': {
+                    padding: '.5rem 1rem',
+                    borderWidth: '1px',
+                    borderRadius: '.375rem',
+                    fontsize: '1rem',
+                    lineHeight: '1.5rem',
+                    fontWeight: '500',
+                    transitionProperty: theme('transitionProperty.default'),
+                    transitionTimingFunction: theme('transitionTimingFunction.in-out'),
+                    transitionDuration: theme('transitionDuration.150'),
+                    '&:focus': {
+                        outline: 'none',
+                        borderColor: theme('colors.gray.700'),
+                        boxShadow: theme('boxShadow.outline-gray'),
+                    },
+                },
+                '.btn-dark': {
+                    borderColor: 'transparent',
+                    color: theme('colors.white'),
+                    backgroundColor: theme('colors.gray.900'),
+                    '&:hover': {
+                        backgroundColor: theme('colors.gray.700'),
+                    },
+                    '&:active': {
+                        backgroundColor: theme('colors.gray.700'),
+                    }
+                },
+                '.btn-white': {
+                    borderColor: theme('colors.gray.300'),
+                    color: theme('colors.gray.700'),
+                    backgroundColor: theme('colors.white'),
+                    '&:focus': {
+                        outline: 'none',
+                        borderColor: theme('colors.gray.300'),
+                    },
+                    '&:hover': {
+                        color: theme('colors.gray.500'),
+                    },
+                    '&:active': {
+                        color: theme('colors.gray.800'),
+                        backgroundColor: theme('colors.gray.50'),
+                    }
+                }
+            }
+
+            addComponents(buttons)
+            addComponents(inputs)
+        })
     ],
     variants: {
         backgroundColor: ({ after }) => after(['active']),

@@ -26,6 +26,9 @@ module.exports = {
                     '900': '#1a202e',
                 }
             },
+            opacity: {
+                '65': '0.65'
+            },
             fontFamily: () => ({
                 sans: ['Inter var', ...defaultTheme.fontFamily.sans],
             }),
@@ -36,7 +39,7 @@ module.exports = {
             }),
             customForms: (theme) => ({
                 default: {
-                    'input, textarea, multiselect, select, checkbox, radio': {
+                    'input, textarea, multiselect, select': {
                         borderColor: theme('colors.gray.300'),
                         '&::placeholder': {
                             color: theme('colors.gray.400'),
@@ -48,7 +51,12 @@ module.exports = {
                         iconColor: theme('colors.gray.400')
                     },
                     'checkbox, radio': {
-                        color: theme('colors.gray.700'),
+                        borderColor: theme('colors.gray.300'),
+                        color: theme('colors.gray.900'),
+                        '&:focus': {
+                            boxShadow: theme('boxShadow.outline-gray'),
+                            borderColor: theme('colors.gray.300'),
+                        },
                     }
                 },
             }),
@@ -81,6 +89,12 @@ module.exports = {
                     color: theme('colors.red.600'),
                     fontSize: theme('fontSize.sm'),
                     lineHeight: theme('lineHeight.5'),
+                },
+                '.form-input-help': {
+                    marginTop: theme('spacing.2'),
+                    color: theme('colors.gray.500'),
+                    fontSize: theme('fontSize.sm'),
+                    lineHeight: theme('lineHeight.5'),
                 }
             };
 
@@ -100,6 +114,9 @@ module.exports = {
                         borderColor: theme('colors.gray.700'),
                         boxShadow: theme('boxShadow.outline-gray'),
                     },
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 },
                 '.btn-dark': {
                     borderColor: 'transparent',
@@ -118,15 +135,17 @@ module.exports = {
                     backgroundColor: theme('colors.white'),
                     '&:focus': {
                         outline: 'none',
-                        borderColor: theme('colors.gray.300'),
                     },
                     '&:hover': {
-                        color: theme('colors.gray.500'),
+                        backgroundColor: theme('colors.gray.50'),
                     },
                     '&:active': {
-                        color: theme('colors.gray.800'),
                         backgroundColor: theme('colors.gray.50'),
                     }
+                },
+                '.btn-disabled': {
+                    opacity: theme('opacity.65'),
+                    pointerEvents: 'none',
                 }
             }
 

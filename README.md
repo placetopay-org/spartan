@@ -4,5 +4,5 @@
 
 - commit and publish everything
 - npm version x.x.x
-- npm publish
+- npm publish --access public
 - git push

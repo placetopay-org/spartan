@@ -74,7 +74,7 @@ module.exports = {
                         boxShadow: theme('boxShadow.outline-red'),
                     },
                     '&::placeholder': {
-                        color: theme('colors.red.300')
+                        color: theme('colors.red.400')
                     }
                 },
                 '.form-label': {
@@ -86,7 +86,7 @@ module.exports = {
                 },
                 '.form-input-error': {
                     marginTop: theme('spacing.2'),
-                    color: theme('colors.red.600'),
+                    color: theme('colors.red.500'),
                     fontSize: theme('fontSize.sm'),
                     lineHeight: theme('lineHeight.5'),
                 },

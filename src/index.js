@@ -37,33 +37,10 @@ module.exports = {
                 'outline-red': `0 0 0 3px ${rgba(theme('colors.red.300'), 0.45)}`,
                 'outline-gray': `0 0 0 3px ${rgba(theme('colors.gray.400'), 0.45)}`,
             }),
-            customForms: (theme) => ({
-                default: {
-                    'input, textarea, multiselect, select': {
-                        borderColor: theme('colors.gray.300'),
-                        '&::placeholder': {
-                            color: theme('colors.gray.400'),
-                        },
-                        '&:focus': {
-                            boxShadow: theme('boxShadow.outline-gray'),
-                            borderColor: theme('colors.gray.300'),
-                        },
-                        iconColor: theme('colors.gray.400')
-                    },
-                    'checkbox, radio': {
-                        borderColor: theme('colors.gray.300'),
-                        color: theme('colors.gray.900'),
-                        '&:focus': {
-                            boxShadow: theme('boxShadow.outline-gray'),
-                            borderColor: theme('colors.gray.300'),
-                        },
-                    }
-                },
-            }),
         },
     },
     plugins: [
-        // require('@tailwindcss/custom-forms'),
+        require('@tailwindcss/forms'),
         plugin(function ({ addComponents, theme }) {
             const inputs = {
                 '.has-error': {
@@ -151,6 +128,53 @@ module.exports = {
 
             addComponents(buttons)
             addComponents(inputs)
+
+            /**
+             * Base Form Input Data
+             */
+            let baseFormFocus = {
+                'outline': theme('outline.none.0') ,
+                'outline-offset': theme('outline.none.1'),
+                '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
+                '--tw-ring-offset-width': '0px',
+                '--tw-ring-offset-color': '#fff',
+                '--tw-ring-opacity': theme('opacity.50'),
+                '--tw-ring-color': `${rgba(theme('colors.gray.400'), 'var(--tw-ring-opacity)')}`,
+                '--tw-ring-offset-shadow': `var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)`,
+                '--tw-ring-shadow': `var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color)`,
+                'box-shadow': `var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)`,
+                'border-color': theme('colors.gray.300'),
+            }
+
+            let baseFormInput =  {
+                borderColor: theme('colors.gray.300'),
+                borderRadius: theme('borderRadius.md'),
+                '&::placeholder': {
+                    color: theme('colors.gray.400'),
+                    opacity: theme('opacity.100')
+                },
+                '&:focus': baseFormFocus,
+            };
+
+            const formInputs = {
+                '.form-input': baseFormInput,
+                '.form-textarea': baseFormInput,
+                '.form-select': baseFormInput,
+                '.form-multiselect': baseFormInput,
+                '.form-radio': {
+                    borderColor: theme('colors.gray.300'),
+                    color: theme('colors.gray.900'),
+                    '&:focus': baseFormFocus,
+                },
+                '.form-checkbox': {
+                    borderColor: theme('colors.gray.300'),
+                    color: theme('colors.gray.900'),
+                    borderRadius: theme('borderRadius.DEFAULT'),
+                    '&:focus': baseFormFocus,
+                }
+            }
+
+            addComponents(formInputs);
         })
     ],
     variants: {

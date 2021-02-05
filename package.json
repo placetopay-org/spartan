@@ -7,6 +7,9 @@
     "type": "git",
     "url": "git+https://github.com/placetopay-org/spartan.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "placetopay",
     "spartan",
@@ -21,11 +24,10 @@
   },
   "homepage": "https://github.com/placetopay-org/spartan#readme",
   "peerDependencies": {
-    "tailwindcss": "^1.0"
+    "tailwindcss": "^2.0.2"
   },
   "dependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
-    "hex-rgb": "^4.2.0",
-    "tailwindcss": "^1.9.6"
+    "hex-rgb": "^4.2.0"
   }
 }

@@ -63,7 +63,7 @@ module.exports = {
         },
     },
     plugins: [
-        require('@tailwindcss/custom-forms'),
+        // require('@tailwindcss/custom-forms'),
         plugin(function ({ addComponents, theme }) {
             const inputs = {
                 '.has-error': {

@@ -27,7 +27,6 @@
     "tailwindcss": "^2.0.2"
   },
   "dependencies": {
-    "@tailwindcss/custom-forms": "^0.2.1",
     "hex-rgb": "^4.2.0"
   }
 }

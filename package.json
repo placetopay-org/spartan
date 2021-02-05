@@ -1,6 +1,6 @@
 {
   "name": "@placetopay/spartan",
-  "version": "2.0.0-rc1",
+  "version": "2.0.0-rc2",
   "description": "Spartan is a base styling for web apps used in PlacetoPay. Spartan is a preset for tailwindcss framework",
   "main": "src/index.js",
   "repository": {

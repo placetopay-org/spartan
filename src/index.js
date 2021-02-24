@@ -126,9 +126,6 @@ module.exports = {
                 }
             }
 
-            addComponents(buttons)
-            addComponents(inputs)
-
             /**
              * Base Form Input Data
              */
@@ -174,7 +171,10 @@ module.exports = {
                 }
             }
 
+            /** Order matters **/
             addComponents(formInputs);
+            addComponents(inputs)
+            addComponents(buttons)
         })
     ],
     variants: {
